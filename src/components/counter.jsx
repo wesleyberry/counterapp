@@ -5,6 +5,19 @@ class Counter extends Component {
         count: 0,
     };
 
+    handleIncrement = () => {
+        console.log('Increment Clicked', this);
+    }
+
+    render() { 
+        return  (
+            <React.Fragment>
+                <span className={ this.getBadgeClasses() }>{ this.formatCount() }</span>
+                <button onClick={ this.handleIncrement } className="btn btn-secondary btn-sm">Increment</button>
+            </React.Fragment>
+        );
+    }    
+    
     formatCount() {
         const { count } = this.state;
         return count === 0 ? 'Zero' : count;
@@ -16,18 +29,6 @@ class Counter extends Component {
         return classes;
     }
 
-    handleIncrement() {
-        console.log('Increment Clicked');
-    }
-
-    render() { 
-        return  (
-            <React.Fragment>
-                <span className={ this.getBadgeClasses() }>{ this.formatCount() }</span>
-                <button onClick={ this.handleIncrement } className="btn btn-secondary btn-sm">Increment</button>
-            </React.Fragment>
-        );
-    }
 }
  
 export default Counter;
